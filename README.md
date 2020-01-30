@@ -34,7 +34,7 @@ This repository contains **not-matured, experimental libraries** used in my work
 This project won't be push to Maven repository for now, you should use [git submodule](https://git-scm.com/docs/git-submodule) to include the code in your repository or your CI-building.
 
 ```bash
-mvn -P local-install install
+mvn -P local-install clean install
 ```
 The profile of `local-install` will skip all of the tests for this project.
 
