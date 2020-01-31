@@ -1,0 +1,4 @@
+[submodule "ci-misc"]
+	path = ci-misc
+	url = https://github.com/mikelue/ci-misc.git
+	branch = master
