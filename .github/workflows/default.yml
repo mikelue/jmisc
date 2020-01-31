@@ -1,0 +1,45 @@
+---
+name: default
+on: [push]
+env:
+  MAVEN_OPTS: >-
+    -Dhttps.protocols=TLSv1.2
+    -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN
+    -Dorg.slf4j.simpleLogger.showDateTime=true
+    -Djava.awt.headless=true
+  REVISION: 1.0-SNAPSHOT
+  MAVEN_PACKAGE_CMD: >-
+    mvn -P ci-config
+    --batch-mode -ntp --fail-at-end --errors --show-version
+    clean test
+
+jobs:
+  test-all:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Update submodules
+        shell: bash
+        run: |
+          auth_header="$(git config --local --get http.https://github.com/.extraheader)"
+          git submodule sync --recursive
+          git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
+      - name: Setup Java 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - uses: actions/cache@v1
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+      - name: Test all modules
+        run: $MAVEN_PACKAGE_CMD -Drevision=$REVISION
+      - name: Dump file
+        if: failure()
+        run: |
+          ci-misc/maven/show-dumpfiles.sh testlib
+          ci-misc/maven/show-dumpfiles.sh lang
+          ci-misc/maven/show-dumpfiles.sh hibernate-datatype

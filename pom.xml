@@ -224,6 +224,13 @@
 							<usePhrasedClassNameInTestCaseSummary>true</usePhrasedClassNameInTestCaseSummary>
 						</statelessTestsetInfoReporter>
 					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>org.jmockit</groupId>
+							<artifactId>jmockit</artifactId>
+							<version>${version.jmockit}</version>
+						</dependency>
+					</dependencies>
 				</plugin>
 				<plugin>
 					<artifactId>maven-failsafe-plugin</artifactId>
