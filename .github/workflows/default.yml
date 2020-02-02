@@ -35,6 +35,8 @@ jobs:
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
       - name: Test all modules
         run: $MAVEN_PACKAGE_CMD -Drevision=$REVISION
       - name: Dump file
