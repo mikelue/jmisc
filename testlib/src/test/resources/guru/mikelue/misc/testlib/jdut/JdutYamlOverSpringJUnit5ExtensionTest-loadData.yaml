@@ -1,0 +1,10 @@
+%TAG !jdut! tag:jdut.mikelue.guru:1.0/
+%TAG !dbtype! tag:jdut.mikelue.guru:jdbcType:1.8/
+%TAG !sql! tag:jdut.mikelue.guru:sql:1.0/
+
+---
+- !sql!table car:
+    columns: [ id, name ]
+    data:
+        - [ 1, "GPA-19" ]
+        - [ 2, "KG-87" ]
