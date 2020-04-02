@@ -24,6 +24,16 @@
 			<optional>true</optional>
 		</dependency>
 
+		<!--
+		  - Junit5(Jupiter)
+		  -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- :~) -->
+
 		<!-- Optional dependecnies -->
 		<dependency>
 			<groupId>jakarta.persistence</groupId>
