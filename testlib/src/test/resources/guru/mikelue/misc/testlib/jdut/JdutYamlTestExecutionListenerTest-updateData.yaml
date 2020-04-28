@@ -1,0 +1,16 @@
+%TAG !jdut! tag:jdut.mikelue.guru:1.0/
+%TAG !dbtype! tag:jdut.mikelue.guru:jdbcType:1.8/
+%TAG !sql! tag:jdut.mikelue.guru:sql:1.0/
+
+---
+- !sql!code
+  build_operation: !sql!statement
+    CREATE TABLE grille(id int primary key, name varchar(32))
+  clean_operation: !sql!statement
+    DROP TABLE grille
+
+- !sql!table grille:
+    columns: [ id, name ]
+    data:
+        - [ 1, "OLP-07" ]
+        - [ 2, "ZC-303" ]
