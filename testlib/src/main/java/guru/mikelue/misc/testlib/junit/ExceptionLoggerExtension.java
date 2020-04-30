@@ -22,6 +22,10 @@ public class ExceptionLoggerExtension implements TestExecutionExceptionHandler {
 		var classOfTested = context.getRequiredTestClass();
 		var logger = LoggerFactory.getLogger(classOfTested);
 
+		if (AssertionError.class.isInstance(throwable)) {
+			throw throwable;
+		}
+
 		logger.error(
 			"{} Test: {}{}",
 			throwable,
