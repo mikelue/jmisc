@@ -42,6 +42,31 @@ Package: [guru.mikelue.misc.testlib.junit](src/main/java/guru/mikelue/misc/testl
 
 This extentions outputs stack trace while there is exception raised from tested code.
 
+## Bean Validation
+
+Package: [guru.mikelue.msic.testlib.valiidation](src/main/java/guru/mikelue/misc/testlib/validation)
+
+* **[AbstractSpringValidatorTestBase](src/main/java/guru/mikelue/misc/testlib/valiidation/AbstractSpringValidatorTestBase.java)**
+  * [Validator](https://docs.oracle.com/javaee/7/api/javax/validation/Validator.html) - You can use *`getValidator()`* to get injected(*`@Autowired`*) instance of it.
+* **[ConstraintViolationAssertions](src/main/java/guru/mikelue/misc/testlib/valiidation/ConstraintViolationAssertions.java)** -
+Use this utility to construct *AssertJ* assertion from a single or a set of [ConstraintViolation](https://docs.oracle.com/javaee/7/api/javax/validation/ConstraintViolation.html)
+* **[ConstraintViolationAssert](src/main/java/guru/mikelue/misc/testlib/valiidation/ConstraintViolationAssert.java)** -
+Main *AssertJ* assertion for *`ConstraintViolation`*
+
+
+```java
+public class YourBeanTest extends AbstractSpringValidatorTestBase {
+    @Test
+    void validateProperty()
+    {
+        var violations = validateValue(YourBean.class, "name", "");
+
+        ConstraintViolationAssertions.assertThatAsSingle(violations)
+            .constraintIsTypeOfAnnotation(Size.class);
+    }
+}
+```
+
 ----
 
 Package: [guru.mikelue.misc.testlib.jdut](src/main/java/guru/mikelue/misc/testlib/jdut)
