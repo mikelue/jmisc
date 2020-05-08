@@ -39,4 +39,14 @@ public abstract class AbstractJpaReposTestBase extends AbstractTestBase {
 	{
 		return ds;
 	}
+
+	/**
+	 * Flushs and clears the entity manager(retrieved by {@link #getEntityManager})
+	 */
+	public void flushAndClear()
+	{
+		var entityManager = getEntityManager();
+		entityManager.flush();
+		entityManager.clear();
+	}
 }
