@@ -84,6 +84,34 @@ Package: [guru.mikelue.misc.testlib.assertj](src/main/java/guru/mikelue/misc/tes
 
 See [AssertJ](https://joel-costigliola.github.io/assertj/)
 
+# JMockit
+
+Package: [guru.mikelue.misc.testlib.jmockit](src/main/java/guru/mikelue/misc/testlib/jdut)
+
+**[JmockitExecutionListener](src/main/java/guru/mikelue/misc/testlib/jmockit/JmockitExecutionListener.java)**
+
+This listener is used to integrate [JMockit](http://jmockit.github.io/) and [Spring TestContext Framework](https://docs.spring.io/spring/docs/current/spring-framework-reference/testing.html#testcontext-framework).
+
+Code example(by [JUnit 5](https://junit.org/junit5/docs/current/user-guide/)).
+```java
+@TestExecutionListeners(
+	listeners=JmockitExecutionListener.class,
+	mergeMode=MERGE_WITH_DEFAULTS
+)
+public class SomeTest {
+	@Tested(fullyInitialized=true)
+	private SampleService testedService;
+
+	@Injectable
+	private SampleDependency mockDependency;
+
+	@Test
+	void doTest()
+	{
+	}
+}
+```
+
 ----
 
 Package: [guru.mikelue.misc.testlib.logger](src/main/java/guru/mikelue/misc/testlib/logger)

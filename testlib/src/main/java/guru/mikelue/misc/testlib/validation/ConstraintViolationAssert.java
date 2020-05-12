@@ -5,15 +5,15 @@ import java.util.List;
 
 import javax.validation.ConstraintViolation;
 
-import org.assertj.core.api.AbstractAssert;
 import org.assertj.core.api.AbstractListAssert;
+import org.assertj.core.api.AbstractObjectAssert;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.api.ObjectAssert;
 
 /**
  * Provides some convenient methods to assert the content of {@link ConstraintViolation}.
  */
-public class ConstraintViolationAssert<T> extends AbstractAssert<ConstraintViolationAssert<T>, ConstraintViolation<T>> {
+public class ConstraintViolationAssert<T> extends AbstractObjectAssert<ConstraintViolationAssert<T>, ConstraintViolation<T>> {
 	public ConstraintViolationAssert(
 		ConstraintViolation<T> violation
 	) {
@@ -22,10 +22,8 @@ public class ConstraintViolationAssert<T> extends AbstractAssert<ConstraintViola
 
 	public ConstraintViolationAssert<T> constraintIsTypeOfAnnotation(Class<? extends Annotation> typeOfAnnotation)
 	{
-		Assertions.assertThat(
-			actual.getConstraintDescriptor()
-				.getAnnotation()
-		)
+		extracting("constraintDescriptor")
+			.extracting("annotation")
 			.as(
 				"Checks violation for property path: [%s/%s]. Invalid value: [%s]",
 				actual.getPropertyPath(), actual.getRootBeanClass().getSimpleName(),
