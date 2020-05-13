@@ -11,7 +11,7 @@ Package: `guru.mikelue.misc.testlib`
 
 All of the following classes for testing are inheriting *`AbstractTestBase`*.
 
-This base applies `@ExtendWith(ExceptionLoggerExtension` by default.
+This base applies `@ExtendWith(ExceptionLoggerExtension)` by default.
 
 ## JPA
 
@@ -42,15 +42,23 @@ Package: [guru.mikelue.misc.testlib.junit](src/main/java/guru/mikelue/misc/testl
 
 This extentions outputs stack trace while there is exception raised from tested code.
 
+----
+
+Package: [guru.mikelue.misc.testlib.jdut](src/main/java/guru/mikelue/misc/testlib/jdut)
+
+**[JdutYamlTestExecutionListener](src/main/java/guru/mikelue/misc/testlib/jdut/JdutYamlTestExecutionListener.java)**
+
+This is a [Junit5 Extension](https://junit.org/junit5/docs/current/user-guide/#extensions) for [JDUT](https://jdut.gh.mikelue.guru/).
+
 ## Bean Validation
 
-Package: [guru.mikelue.msic.testlib.valiidation](src/main/java/guru/mikelue/misc/testlib/validation)
+Package: [guru.mikelue.misc.testlib.validation](src/main/java/guru/mikelue/misc/testlib/validation)
 
-* **[AbstractSpringValidatorTestBase](src/main/java/guru/mikelue/misc/testlib/valiidation/AbstractSpringValidatorTestBase.java)**
+* **[AbstractSpringValidatorTestBase](src/main/java/guru/mikelue/misc/testlib/validation/AbstractSpringValidatorTestBase.java)**
   * [Validator](https://docs.oracle.com/javaee/7/api/javax/validation/Validator.html) - You can use *`getValidator()`* to get injected(*`@Autowired`*) instance of it.
-* **[ConstraintViolationAssertions](src/main/java/guru/mikelue/misc/testlib/valiidation/ConstraintViolationAssertions.java)** -
+* **[ConstraintViolationAssertions](src/main/java/guru/mikelue/misc/testlib/validation/ConstraintViolationAssertions.java)** -
 Use this utility to construct *AssertJ* assertion from a single or a set of [ConstraintViolation](https://docs.oracle.com/javaee/7/api/javax/validation/ConstraintViolation.html)
-* **[ConstraintViolationAssert](src/main/java/guru/mikelue/misc/testlib/valiidation/ConstraintViolationAssert.java)** -
+* **[ConstraintViolationAssert](src/main/java/guru/mikelue/misc/testlib/validation/ConstraintViolationAssert.java)** -
 Main *AssertJ* assertion for *`ConstraintViolation`*
 
 
@@ -66,14 +74,6 @@ public class YourBeanTest extends AbstractSpringValidatorTestBase {
     }
 }
 ```
-
-----
-
-Package: [guru.mikelue.misc.testlib.jdut](src/main/java/guru/mikelue/misc/testlib/jdut)
-
-**[JdutYamlOverSpringJUnit5Extension](src/main/java/guru/mikelue/misc/testlib/jdut/JdutYamlOverSpringJUnit5Extension.java)**
-
-This is a [Junit5 Extension](https://junit.org/junit5/docs/current/user-guide/#extensions) for [JDUT](https://jdut.gh.mikelue.guru/).
 
 # Utilities
 
