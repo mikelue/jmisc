@@ -38,7 +38,6 @@ public class PostgresArrayUserType implements UserType, DynamicParameterizedType
 	private final Logger logger = LoggerFactory.getLogger(PostgresArrayUserType.class);
 
 	private Class<?> targetType;
-	private ToPrimitive toPrimitiveImpl;
 
 	public PostgresArrayUserType() {}
 
@@ -52,19 +51,6 @@ public class PostgresArrayUserType implements UserType, DynamicParameterizedType
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(String.format("Class of \"%s\" cannot be loaded.", className), e);
 		}
-
-
-		/**
-		 * Since ArrayUtils.toPrimitive(Object) doesn't support convert
-		 * from Boolean[] to boolean[],
-		 * here is to do the checking for the convertion.
-		 */
-		if (Boolean.class.equals(targetType.getComponentType())) {
-			toPrimitiveImpl = ToPrimitive.byBoolean;
-		} else {
-			toPrimitiveImpl = ToPrimitive.byObject;
-		}
-		// :~)
 	}
 
 	@Override
@@ -168,7 +154,7 @@ public class PostgresArrayUserType implements UserType, DynamicParameterizedType
 			return;
 		}
 
-		var convertedValue = toPrimitiveImpl.convert(value);
+		var convertedValue = ArrayUtils.toPrimitive(value);
 		if (!isSupportedJdbcType(convertedValue.getClass())) {
 			throw new HibernateException(String.format(
 				"Doesn't support type for setting parameters of statements: %s",
@@ -211,12 +197,4 @@ public class PostgresArrayUserType implements UserType, DynamicParameterizedType
 	{
 		return supportedTypes.contains(checkedType.getTypeName());
 	}
-}
-
-@FunctionalInterface
-interface ToPrimitive {
-	static ToPrimitive byObject = value -> ArrayUtils.toPrimitive(value);
-	static ToPrimitive byBoolean = value -> ArrayUtils.toPrimitive((Boolean[])value);
-
-	Object convert(Object value);
 }
