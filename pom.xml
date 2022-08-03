@@ -18,6 +18,7 @@
 		<module>testlib</module>
         <module>lang</module>
 		<module>hibernate-datatype</module>
+		<module>spring-data</module>
     </modules>
 
 	<properties>
@@ -31,7 +32,7 @@
 		<!--
 		- Versions for testing dependencies
 		-->
-		<version.jmockit>1.48</version.jmockit>
+		<version.jmockit>1.49</version.jmockit>
 		<version.easyrandom>4.0.0</version.easyrandom>
 		<!-- :~) -->
 
@@ -58,7 +59,7 @@
 	<build>
 		<resources>
 			<resource>
-				<directory>${basedir}/src/main/resources</directory>
+				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
 				<excludes>
 					<exclude>**/.*.swp</exclude>
@@ -67,7 +68,7 @@
 		</resources>
 		<testResources>
 			<testResource>
-				<directory>${basedir}/src/test/resources</directory>
+				<directory>src/test/resources</directory>
 				<filtering>true</filtering>
 				<excludes>
 					<exclude>**/.*.swp</exclude>

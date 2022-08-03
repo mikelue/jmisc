@@ -11,6 +11,15 @@ This repository contains **not-matured, experimental libraries** used in my work
 </dependency>
 ```
 
+[**spring-data**](spring-data/README.md): Some customization for SpringData
+```xml
+<dependency>
+	<groupId>guru.mikelue.misc</groupId>
+	<artifactId>spring-data</artifactId>
+	<version>1.0-SNAPSHOT</version>
+</dependency>
+```
+
 [**hibernate-datatype**](hibernate-datatype/README.md): Data types of hibernate supporting for specific database(Postgres)
 ```xml
 <dependency>
