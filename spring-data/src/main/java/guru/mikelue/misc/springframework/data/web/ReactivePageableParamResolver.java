@@ -20,7 +20,7 @@ public class ReactivePageableParamResolver
 {
 	public final static String DEFAULT_PARAM_NAME_PAGE = "page";
 	public final static String DEFAULT_PARAM_NAME_PAGE_SIZE = "page-size";
-	public final static int DEFAULT_PARAM_VALUE_PAGE = 1;
+	public final static int DEFAULT_PARAM_VALUE_PAGE = 0;
 	public final static int DEFAULT_PARAM_VALUE_PAGE_SIZE = 20;
 
 	private int defaultPage = DEFAULT_PARAM_VALUE_PAGE;
