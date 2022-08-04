@@ -1,4 +1,4 @@
-package guru.mikelue.springframework.data.web;
+package guru.mikelue.misc.springframework.data.web;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -16,7 +16,7 @@ import org.junit.jupiter.api.*;
 import mockit.*;
 
 import static org.springframework.data.domain.Sort.Direction.*;
-import static guru.mikelue.springframework.data.web.MockServerWebExchangeUtils.*;
+import static guru.mikelue.misc.springframework.data.web.MockServerWebExchangeUtils.*;
 
 public class ReactiveSortParamResolverMockTest {
 	@Mocked

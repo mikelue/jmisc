@@ -1,4 +1,4 @@
-package guru.mikelue.springframework.data.web;
+package guru.mikelue.misc.springframework.data.web;
 
 import java.io.IOException;
 import java.util.Map;
@@ -20,7 +20,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import reactor.core.publisher.Mono;
 
-import static guru.mikelue.springframework.data.web.ReactivePageableParamResolver.*;
+import static guru.mikelue.misc.springframework.data.web.ReactivePageableParamResolver.*;
 import static org.assertj.core.api.Assertions.*;
 
 @WebFluxTest(controllers=PagingController.class, properties="spring.test.jsontesters.enabled=true")

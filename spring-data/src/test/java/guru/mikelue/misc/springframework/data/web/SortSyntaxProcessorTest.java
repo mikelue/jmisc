@@ -1,4 +1,4 @@
-package guru.mikelue.springframework.data.web;
+package guru.mikelue.misc.springframework.data.web;
 
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Order;

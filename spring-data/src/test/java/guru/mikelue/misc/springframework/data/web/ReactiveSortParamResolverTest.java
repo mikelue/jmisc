@@ -1,4 +1,4 @@
-package guru.mikelue.springframework.data.web;
+package guru.mikelue.misc.springframework.data.web;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

@@ -1,4 +1,4 @@
-package guru.mikelue.springframework.data.web;
+package guru.mikelue.misc.springframework.data.web;
 
 import org.springframework.mock.http.server.reactive.MockServerHttpRequest;
 import org.springframework.mock.web.server.MockServerWebExchange;

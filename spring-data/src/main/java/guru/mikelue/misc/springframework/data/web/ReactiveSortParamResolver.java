@@ -1,4 +1,4 @@
-package guru.mikelue.springframework.data.web;
+package guru.mikelue.misc.springframework.data.web;
 
 import java.util.stream.Collectors;
 import java.util.stream.Stream;

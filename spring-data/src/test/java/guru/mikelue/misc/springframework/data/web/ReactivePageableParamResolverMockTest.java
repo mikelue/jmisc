@@ -1,4 +1,4 @@
-package guru.mikelue.springframework.data.web;
+package guru.mikelue.misc.springframework.data.web;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.MethodParameter;
@@ -19,8 +19,8 @@ import org.junit.jupiter.api.Test;
 import mockit.Expectations;
 import mockit.Mocked;
 
-import static guru.mikelue.springframework.data.web.MockServerWebExchangeUtils.*;
-import static guru.mikelue.springframework.data.web.ReactivePageableParamResolver.*;
+import static guru.mikelue.misc.springframework.data.web.MockServerWebExchangeUtils.*;
+import static guru.mikelue.misc.springframework.data.web.ReactivePageableParamResolver.*;
 import static org.assertj.core.api.Assertions.*;
 
 public class ReactivePageableParamResolverMockTest {

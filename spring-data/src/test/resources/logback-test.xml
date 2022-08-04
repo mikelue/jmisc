@@ -9,7 +9,7 @@
 		</encoder>
 	</appender>
 
-	<logger name="guru.mikelue.springframework.data" level="debug" />
+	<logger name="guru.mikelue.misc.springframework.data" level="debug" />
 
 	<root level="warn">
 		<appender-ref ref="STDOUT"/>
