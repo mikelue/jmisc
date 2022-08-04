@@ -1,6 +1,23 @@
 This repository contains **not-matured, experimental libraries** used in my work.
 
-## Summary
+# Installation
+
+## By Copy
+
+```sh
+cp -R --parent ./src/main/java <your project root>
+```
+
+## By Maven install
+
+This project won't be push to Maven repository for now, you should use [git submodule](https://git-scm.com/docs/git-submodule) to include the code in your repository or your CI-building.
+
+```bash
+mvn -P local-install clean install
+```
+The profile of `local-install` will skip all of the tests for this project.
+
+## Artifacts
 
 [**lang**](lang/README.md): Tuple, Data Generator(for testing, mostly)
 ```xml
@@ -37,15 +54,6 @@ This repository contains **not-matured, experimental libraries** used in my work
 	<version>1.0-SNAPSHOT</version>
 </dependency>
 ```
-
-## Usage
-
-This project won't be push to Maven repository for now, you should use [git submodule](https://git-scm.com/docs/git-submodule) to include the code in your repository or your CI-building.
-
-```bash
-mvn -P local-install clean install
-```
-The profile of `local-install` will skip all of the tests for this project.
 
 ## Dependencies
 
