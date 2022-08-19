@@ -1,5 +1,32 @@
 # Misc - Spring Data
 
+## Change Pageable object
+
+In some cases, we would like to limit maximum size or page number of a page.
+
+You can use `PageableUtils` to change page number of size of **Pageable** object.
+
+```java
+PageableUtils.LimitPageable(sourcePageable, 100, 200);
+```
+
+---
+
+If your sorting property is differ from property name of data-mappnig-bean(e.g., ORM),
+you may use `PagePropertyChanger` to convert names of propertys of `Sort`.
+
+```java
+var pageableChanger = PagePropertyChanger.from(
+	Map.of("c1", "c7", "c2", "c6")
+);
+
+// This maps "c1" and "c2" to "c7" to "c6", respectively.
+var modifiedPageable = testedChanger.mapProperty(
+	sourcePageable
+);
+
+```
+
 ## Resolve Pageable object in method parameter of WebFlux
 
 In additional to [HTTP query string](https://en.wikipedia.org/wiki/Query_string), the `ReactivePegeableParamResolver` and `ReactiveSortParamResolver` read paging information from [HTTP header](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Headers) either.
